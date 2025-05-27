@@ -1,12 +1,13 @@
 "use client";
 
 import Article from "@/app/components/Article";
+import { newsAPI } from "@/app/types";
 import axios from "axios";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const Search = () => {
-  const [newsData, setNewsData] = useState<any>([]);
+  const [newsData, setNewsData] = useState<newsAPI[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const searchParams = useSearchParams();
   const search = searchParams ? searchParams.get("q") : null;
