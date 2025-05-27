@@ -22,9 +22,9 @@ const Search = () => {
           `https://newsapi.org/v2/everything?q=${search}&apiKey=${process.env.NEXT_PUBLIC_API_TOKEN_NEWS}`,
           { signal }
         );
-        const articles = response.data.articles || [];
+        const articles: newsAPI[] = response.data.articles || [];
         const filterArticles = articles.filter(
-          (article: any) => article.urlToImage !== null
+          (article) => article.urlToImage !== null
         );
         setNewsData(filterArticles);
         setLoading(false);
@@ -48,7 +48,7 @@ const Search = () => {
         <div>Loading...</div>
       ) : (
         <div>
-          {newsData.map((article: any, index: number) => (
+          {newsData.map((article, index: number) => (
             <div
               key={`${article.title}-${index}`}
               className="py-2 border-b border-gray-300 mb-4"
