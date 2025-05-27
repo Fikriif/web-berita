@@ -1,6 +1,6 @@
 export type newsAPI = {
     source: {
-        id: string,
+        id: string ,
         name: string,
     }
     author: string,
